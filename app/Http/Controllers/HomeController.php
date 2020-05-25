@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Employee;
+use App\Department;
+use App\Designation;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $employeecount = Employee::all()->count();
+        $departmentcount = Department::all()->count();
+        $designationcount = Designation::all()->count();
+
         return view('home');
     }
 }
